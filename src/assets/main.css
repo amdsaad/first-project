@@ -1,27 +1,15 @@
-@import './base.css';
+@import 'tailwindcss';
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.text-center {
-  text-align: center;
-}
 input {
   border: 0;
   padding: 10px 15px;
   outline: none;
 }
-form, ul {
+form,
+ul {
   max-width: 500px;
   margin: 20px auto;
 }
@@ -45,10 +33,10 @@ ul {
   color: white;
 }
 
-.todo-item{
+.todo-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid #DEDEDE;
+  border-bottom: 1px solid #dedede;
 }

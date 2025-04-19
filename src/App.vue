@@ -5,7 +5,7 @@ import TheTodos from './components/TheTodos.vue'
 <template>
   <main class="container">
     <h1 class="text-center">TODO APP</h1>
-    <TheTodos />
+    <TheTodos class="max-w-7xl mx-auto" />
   </main>
 </template>
 
