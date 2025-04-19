@@ -1,5 +1,6 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
+import TheTodoItem from './TheTodoItem.vue'
 
 const todoText = ref('')
 const todos = reactive([
@@ -29,7 +30,7 @@ const addTodo = () => {
 }
 </script>
 <template>
-  <div>
+  <div class="amd">
     <form @submit.prevent="addTodo">
       <div class="input-group">
         <input
@@ -40,15 +41,10 @@ const addTodo = () => {
       </div>
     </form>
     <ul>
-      <li
-        class="todo-item"
+      <TheTodoItem
         v-for="todo in todos"
-        :key="todo.id">
-        <p>{{ todo.text }}</p>
-        <input
-          type="checkbox"
-          v-model="todo.done" />
-      </li>
+        :key="todo.id"
+        :todoData="todo" />
     </ul>
   </div>
 </template>
