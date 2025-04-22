@@ -1,25 +1,80 @@
-<script setup>
-import { ref } from 'vue'
+<script lang="ts" setup>
+import { computed, ref } from 'vue'
 
-import TheTodos from './components/TheTodos.vue'
-const showTodo = ref(false)
+// local components
+// import AppBtn from './components/AppBtn.vue'
+
+const books = ref([
+  {
+    id: 1,
+    title: 'The Pragmatic Programmer',
+    author: 'Andrew Hunt',
+    genre: 'Programming',
+    published: 1999,
+    read: true,
+  },
+  {
+    id: 2,
+    title: 'Clean Code',
+    author: 'Robert C. Martin',
+    genre: 'Programming',
+    published: 2008,
+    read: true,
+  },
+  {
+    id: 3,
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    genre: 'Self-help',
+    published: 2018,
+    read: true,
+  },
+  {
+    id: 4,
+    title: 'Deep Work',
+    author: 'Cal Newport',
+    genre: 'Productivity',
+    published: 2016,
+    read: false,
+  },
+  {
+    id: 5,
+    title: 'Refactoring',
+    author: 'Martin Fowler',
+    genre: 'Programming',
+    published: 1999,
+    read: false,
+  },
+])
+
+const redbooks = computed(() => {
+  return books.value.filter((x) => x.read).length
+})
+const markAsRead = (book) => {
+  // if (book.read) return
+  book.read = !book.read
+}
 </script>
 
 <template>
-  <main class="container">
-    <div class="flex items-center justify-center py-8">
-      <button
-        class="bg-blue-500 text-white px-4 py-2 cursor-pointer"
-        @click="showTodo = !showTodo">
-        show Todos
-      </button>
-    </div>
-    <div v-if="showTodo">
-      <h1 class="text-center">TODO APP</h1>
-      <TheTodos class="max-w-7xl mx-auto" />
-    </div>
-    <div v-else>this is the opps of the show todo</div>
-  </main>
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <p class="text-center">i read {{ redbooks }} books</p>
+    <ul class="space-y-4 grid grid-cols-2 gap-4">
+      <li
+        class="border p-4 rounded-md border-gray-200 shadow-sm"
+        v-for="book in books"
+        @click="markAsRead(book)"
+        :key="book.id">
+        <h1 class="font-medium text-lg">{{ book.title }}</h1>
+        <p>By: {{ book.author }}</p>
+        <p>published: {{ book.published }}</p>
+      </li>
+    </ul>
+  </div>
 </template>
 
-<style scoped></style>
+<style></style>
+
+
+<!-- home work -->
+<!-- make the list filter by text -->
