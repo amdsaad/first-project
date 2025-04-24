@@ -61,6 +61,9 @@ const filteredBooks = computed(() => {
   return books.value.filter(book =>
     book.title.toLowerCase().includes(search.value.toLowerCase())
   )
+  // some changes
+
+  // another
 })
 
 </script>
